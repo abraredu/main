@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses — ABRAR Madrasa</title>
+  <meta name="description" content="Explore ABRAR Madrasa's three Islamic education programmes: Madrasa One-to-One, Madrasa Group, and Qur'an Recitation with Tajweed.">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="stylesheet" href="css/web-style.css">
+  <style>
+    /* Course detail card */
+    .course-detail-section {
+      padding: 5rem 0;
+    }
+    .course-detail-section:not(:last-of-type) {
+      border-bottom: 1px solid var(--color-border);
+    }
+    .course-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .course-detail-grid.reverse {
+      direction: rtl;
+    }
+    .course-detail-grid.reverse > * {
+      direction: ltr;
+    }
+    .course-detail-visual {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+    }
+    .course-includes {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .course-include-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+    }
+    .course-include-check {
+      width: 20px; height: 20px;
+      background: var(--green-100);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-700);
+      flex-shrink: 0;
+    }
+    .course-include-check svg { width: 11px; height: 11px; }
+    .pricing-box {
+      background: var(--green-50);
+      border: 1.5px solid var(--green-200);
+      border-radius: var(--r-lg);
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .pricing-box-amount {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--green-700);
+    }
+    .pricing-box-period {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+    .pricing-note {
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+    .enroll-mini-form {
+      background: var(--white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .enroll-mini-form h4 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 0.625rem 0.875rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .schedule-table th {
+      font-weight: 600;
+      color: var(--color-text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: var(--neutral-50);
+    }
+    @media (max-width: 768px) {
+      .course-detail-grid { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
+      .course-detail-grid.reverse { direction: ltr; }
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ABRAR Madrasa Home">
+        <img src="../logo.png" alt="ABRAR Logo">
+        <div>
+          <div class="nav-logo-text">ABRAR</div>
+          <div class="nav-logo-sub">Madrasa Management System</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html"   class="nav-link">Home</a>
+        <a href="about.html"   class="nav-link">About</a>
+        <a href="courses.html" class="nav-link active">Courses</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="../index.html" class="btn btn-primary nav-cta" id="navLoginBtn">Login</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html"   class="nav-link">Home</a>
+    <a href="about.html"   class="nav-link">About</a>
+    <a href="courses.html" class="nav-link active">Courses</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="../index.html" class="btn btn-primary nav-cta">Login to Portal</a>
+  </div>
+
+
+  <!-- ══════════════ PAGE HERO ══════════════ -->
+  <section class="page-hero" aria-labelledby="pageHeroTitle">
+    <div class="container page-hero-content">
+      <span class="badge badge-green" style="margin-bottom:1rem; display:inline-flex;">📚 Our Programmes</span>
+      <h1 class="display-lg" id="pageHeroTitle">Our Courses</h1>
+      <p>Three carefully crafted programmes designed to take students from complete beginners to confident learners of the Deen.</p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ COURSE OVERVIEW CARDS ══════════════ -->
+  <section class="section bg-surface" aria-labelledby="overviewTitle">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2 class="display-md" id="overviewTitle">Choose Your <span class="text-primary">Programme</span></h2>
+        <p>All our programmes are delivered by qualified tutors and include monthly progress reports and transparent fee management.</p>
+      </div>
+      <div class="courses-grid">
+        <!-- Quick Nav Cards -->
+        <a href="#madrasa-one" class="course-card" data-reveal style="text-decoration:none; color:inherit;">
+          <div class="course-banner">
+            <img src="course-one.png" alt="Madrasa One-to-One" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="course-body">
+            <h3>Madrasa One-to-One</h3>
+            <p>Intensive individual sessions with personalised attention and rapid progress through the full Madrasa syllabus.</p>
+            <div class="course-price">
+              <span class="course-price-amount">₹1,200</span>
+              <span class="course-price-period">/ month</span>
+            </div>
+            <span class="btn btn-primary">View Details</span>
+          </div>
+        </a>
+
+        <a href="#madrasa-group" class="course-card featured" data-reveal data-reveal-delay="100" style="text-decoration:none; color:inherit;">
+          <div class="featured-ribbon">⭐ Most Popular</div>
+          <div class="course-banner">
+            <img src="course-two.png" alt="Madrasa Group" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="course-body">
+            <h3>Madrasa Group</h3>
+            <p>Collaborative learning in small groups — structured curriculum, peer interaction and a supportive classroom environment.</p>
+            <div class="course-price">
+              <span class="course-price-amount">₹800</span>
+              <span class="course-price-period">/ month</span>
+            </div>
+            <span class="btn btn-primary">View Details</span>
+          </div>
+        </a>
+
+        <a href="#quran-recitation" class="course-card" data-reveal data-reveal-delay="200" style="text-decoration:none; color:inherit;">
+          <div class="course-banner">
+            <img src="course-three.png" alt="Qur'an Recitation" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="course-body">
+            <h3>Qur'an Recitation</h3>
+            <p>Master the art of beautiful Qur'anic recitation with proper Tajweed rules — from Qa'idah to complete surahs.</p>
+            <div class="course-price">
+              <span class="course-price-amount">₹600</span>
+              <span class="course-price-period">/ month</span>
+            </div>
+            <span class="btn btn-outline-green">View Details</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ COURSE 1: MADRASA ONE-TO-ONE ══════════════ -->
+  <section class="section bg-white course-detail-section" id="madrasa-one" aria-labelledby="c1Title">
+    <div class="container">
+      <div class="course-detail-grid">
+        <div data-reveal>
+          <span class="badge badge-green" style="margin-bottom:1rem;">Individual Programme</span>
+          <h2 class="display-md" id="c1Title" style="margin-bottom:1rem;">Madrasa <span class="text-primary">One-to-One</span></h2>
+          <p style="color:var(--color-text-muted); line-height:1.8; margin-bottom:1rem;">
+            Our flagship programme pairs each student with a dedicated, qualified tutor for private, personalised sessions. The curriculum is adapted to the student's level, learning pace, and goals — ensuring maximum progress with individual attention.
+          </p>
+          <p style="color:var(--color-text-muted); line-height:1.8; margin-bottom:1.5rem;">
+            This programme covers the full Madrasa syllabus including Arabic reading and writing, Islamic studies, Fiqh, and Seerah — all delivered in a structured, supportive one-to-one setting.
+          </p>
+
+          <div class="course-includes">
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Personalised learning plan crafted for each student</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Full Madrasa syllabus (Arabic, Fiqh, Aqeedah, Seerah)</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Monthly progress reports for parents</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Flexible morning and evening time slots</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Digital fee receipts and transaction history</span>
+            </div>
+          </div>
+
+          <div class="pricing-box">
+            <div>
+              <div class="pricing-box-amount">₹1,200</div>
+              <div class="pricing-box-period">per month</div>
+            </div>
+            <div class="pricing-note">One-time registration fee may apply</div>
+          </div>
+
+          <a href="contact.html?course=madrasa-one" class="btn btn-primary btn-lg" id="enrollBtn1">Enquire &amp; Enrol</a>
+        </div>
+
+        <div data-reveal data-reveal-delay="200">
+          <div class="course-detail-visual">
+            <img src="course-one.png" alt="Madrasa One-to-One" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-xl);">
+          </div>
+
+          <div style="margin-top: 2rem; background: var(--neutral-50); border-radius: var(--r-lg); padding: 1.5rem;">
+            <h4 style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 1rem;">Available Time Slots</h4>
+            <table class="schedule-table">
+              <thead><tr><th>Session</th><th>Timing</th><th>Days</th></tr></thead>
+              <tbody>
+                <tr><td>Morning</td><td>7:00 AM – 9:00 AM</td><td>Mon – Sat</td></tr>
+                <tr><td>Evening</td><td>5:00 PM – 7:30 PM</td><td>Mon – Sat</td></tr>
+                <tr><td>Weekend</td><td>9:00 AM – 1:00 PM</td><td>Fri – Sun</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ COURSE 2: MADRASA GROUP ══════════════ -->
+  <section class="section bg-surface course-detail-section" id="madrasa-group" aria-labelledby="c2Title">
+    <div class="container">
+      <div class="course-detail-grid reverse">
+        <div data-reveal data-reveal-delay="200">
+          <div class="course-detail-visual">
+            <img src="course-two.png" alt="Madrasa Group" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-xl);">
+          </div>
+          <div style="margin-top: 2rem; background: var(--white); border-radius: var(--r-lg); padding: 1.5rem; border: 1px solid var(--color-border);">
+            <h4 style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 1rem;">Class Schedule</h4>
+            <table class="schedule-table">
+              <thead><tr><th>Class</th><th>Timing</th><th>Days</th></tr></thead>
+              <tbody>
+                <tr><td>Morning Batch</td><td>8:00 AM – 10:00 AM</td><td>Mon – Thu</td></tr>
+                <tr><td>Evening Batch</td><td>5:30 PM – 7:30 PM</td><td>Mon – Thu</td></tr>
+                <tr><td>Weekend Batch</td><td>10:00 AM – 1:00 PM</td><td>Sat – Sun</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-reveal>
+          <span class="badge badge-green" style="margin-bottom:1rem;">Group Programme</span>
+          <h2 class="display-md" id="c2Title" style="margin-bottom:1rem;">Madrasa <span class="text-primary">Group</span></h2>
+          <p style="color:var(--color-text-muted); line-height:1.8; margin-bottom:1rem;">
+            Our most popular programme — small group classes of 4–8 students, fostering a sense of community while delivering structured Islamic education. Students benefit from peer learning, group activities, and a supportive classroom atmosphere.
+          </p>
+          <p style="color:var(--color-text-muted); line-height:1.8; margin-bottom:1.5rem;">
+            The curriculum follows the standard Madrasa syllabus with structured assessments every term. Group classes instil discipline, social skills, and a love for learning in a community setting.
+          </p>
+
+          <div class="course-includes">
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Small groups of 4–8 students for focused learning</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Structured Madrasa curriculum with term assessments</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Monthly progress reports shared with parents</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Islamic activities, competitions and group projects</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Most affordable full Madrasa programme</span>
+            </div>
+          </div>
+
+          <div class="pricing-box">
+            <div>
+              <div class="pricing-box-amount">₹800</div>
+              <div class="pricing-box-period">per month</div>
+            </div>
+            <div class="pricing-note">Sibling discounts available</div>
+          </div>
+
+          <a href="contact.html?course=madrasa-group" class="btn btn-primary btn-lg" id="enrollBtn2">Enquire &amp; Enrol</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ COURSE 3: QUR'AN RECITATION ══════════════ -->
+  <section class="section bg-white course-detail-section" id="quran-recitation" aria-labelledby="c3Title">
+    <div class="container">
+      <div class="course-detail-grid">
+        <div data-reveal>
+          <span class="badge badge-gold" style="margin-bottom:1rem;">Tajweed Programme</span>
+          <h2 class="display-md" id="c3Title" style="margin-bottom:1rem;">Qur'an <span class="text-primary">Recitation</span></h2>
+          <p style="color:var(--color-text-muted); line-height:1.8; margin-bottom:1rem;">
+            A focused programme for students who wish to learn or improve their Qur'anic recitation with proper Tajweed (rules of recitation). From complete beginners learning the Qa'idah (alphabet) to advanced students completing the full Qur'an — everyone is welcome.
+          </p>
+          <p style="color:var(--color-text-muted); line-height:1.8; margin-bottom:1.5rem;">
+            Our certified Tajweed teachers bring warmth and expertise to every session, correcting pronunciation with patience and encouraging students to develop a lifelong love for the Qur'an.
+          </p>
+
+          <div class="course-includes">
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Suitable for all ages — from 4 years to adults</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>From Qa'idah beginners to advanced Hifz preparation</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Certified Tajweed teachers</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Individual and small group sessions available</span>
+            </div>
+            <div class="course-include-item">
+              <div class="course-include-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Most accessible entry-level Islamic programme</span>
+            </div>
+          </div>
+
+          <div class="pricing-box" style="background: var(--gold-light); border-color: #fde68a;">
+            <div>
+              <div class="pricing-box-amount" style="color: #92400e;">₹600</div>
+              <div class="pricing-box-period">per month</div>
+            </div>
+            <div class="pricing-note">Lowest-cost entry into Islamic learning</div>
+          </div>
+
+          <a href="contact.html?course=quran" class="btn btn-primary btn-lg" id="enrollBtn3">Enquire &amp; Enrol</a>
+        </div>
+
+        <div data-reveal data-reveal-delay="200">
+          <div class="course-detail-visual">
+            <img src="course-three.png" alt="Qur'an Recitation" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-xl);">
+          </div>
+          <div style="margin-top: 2rem; background: var(--neutral-50); border-radius: var(--r-lg); padding: 1.5rem;">
+            <h4 style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 1rem;">What You'll Learn</h4>
+            <table class="schedule-table">
+              <thead><tr><th>Stage</th><th>Focus</th></tr></thead>
+              <tbody>
+                <tr><td>Beginner</td><td>Arabic alphabet &amp; Qa'idah</td></tr>
+                <tr><td>Intermediate</td><td>Short Surahs with Tajweed</td></tr>
+                <tr><td>Advanced</td><td>Juz-by-Juz recitation</td></tr>
+                <tr><td>Hifz Prep</td><td>Memorisation &amp; revision</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ ENROL FORM ══════════════ -->
+  <section class="section bg-surface" id="enrol" aria-labelledby="enrolTitle">
+    <div class="container" style="max-width: 680px;">
+      <div class="section-header" data-reveal>
+        <span class="badge badge-green">Get Started</span>
+        <h2 class="display-md" id="enrolTitle">Ready to <span class="text-primary">Enrol?</span></h2>
+        <p>Fill in the form below and our team will get back to you within 24 hours to discuss the best programme for your child.</p>
+      </div>
+
+      <div class="contact-form-card" data-reveal>
+        <h3>Enrolment Enquiry</h3>
+        <form id="enrollForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="e-parent">Parent / Guardian Name</label>
+              <input type="text" id="e-parent" class="form-control" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="e-phone">Phone Number</label>
+              <input type="tel" id="e-phone" class="form-control" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="e-student">Student's Name</label>
+            <input type="text" id="e-student" class="form-control" placeholder="Student's full name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="e-age">Student's Age</label>
+              <input type="number" id="e-age" class="form-control" placeholder="e.g. 8" min="4" max="60" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="e-course">Course Interested In</label>
+              <select id="e-course" class="form-control" required>
+                <option value="">Select a course</option>
+                <option value="madrasa-one">Madrasa One-to-One</option>
+                <option value="madrasa-group">Madrasa Group</option>
+                <option value="quran">Qur'an Recitation</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="e-message">Any Additional Information</label>
+            <textarea id="e-message" class="form-control" placeholder="e.g. current level, preferred timing, special requirements…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" id="enrollSubmitBtn" style="width:100%;">
+            Submit Enquiry
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="cta-section section" aria-labelledby="ctaTitle">
+    <div class="container cta-content">
+      <h2 class="display-md" id="ctaTitle" data-reveal>Have Questions? We're Here to Help.</h2>
+      <p data-reveal data-reveal-delay="100">Our team is always happy to answer any questions about our courses, fees or schedules. Don't hesitate to reach out.</p>
+      <div class="cta-btns" data-reveal data-reveal-delay="200">
+        <a href="contact.html" class="btn btn-primary btn-lg" id="ctaContactBtn">Contact Us</a>
+        <a href="about.html"   class="btn btn-outline-white btn-lg" id="ctaAboutBtn">Learn About Us</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="../logo.png" alt="ABRAR Logo">
+            <div>
+              <div class="nav-logo-text">ABRAR</div>
+              <div class="nav-logo-sub">Madrasa Management System</div>
+            </div>
+          </a>
+          <p class="footer-tagline">Dedicated to nurturing the next generation of Muslims through authentic Islamic education.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="#madrasa-one">Madrasa One-to-One</a></li>
+            <li><a href="#madrasa-group">Madrasa Group</a></li>
+            <li><a href="#quran-recitation">Qur'an Recitation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="../index.html">Login Portal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 ABRAR Madrasa. All rights reserved.</span>
+        <span>Built with ❤️ for our community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="js/web.js"></script>
+
+  <!-- Floating WhatsApp Contact Button -->
+  <a href="https://wa.me/919876543210" class="no-print" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; width: 56px; height: 56px; background-color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.2); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="Contact on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+      <path d="M22 12a10 10 0 1 1-5.93-9.14"/>
+      <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>
+    </svg>
+  </a>
+</body>
+</html>

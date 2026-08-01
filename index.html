@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABRAR Madrasa — Excellence in Islamic Education</title>
+  <meta name="description" content="ABRAR Madrasa Management System offers world-class Islamic education through one-to-one tuition, group classes, and Qur'an recitation courses for students of all ages.">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="stylesheet" href="css/web-style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ABRAR Madrasa Home">
+        <img src="../logo.png" alt="ABRAR Logo">
+        <div>
+          <div class="nav-logo-text">ABRAR</div>
+          <div class="nav-logo-sub">Madrasa Management System</div>
+        </div>
+      </a>
+
+      <div class="nav-links" role="menubar">
+        <a href="index.html"   class="nav-link active" role="menuitem">Home</a>
+        <a href="about.html"   class="nav-link" role="menuitem">About</a>
+        <a href="courses.html" class="nav-link" role="menuitem">Courses</a>
+        <a href="contact.html" class="nav-link" role="menuitem">Contact</a>
+        <a href="../index.html" class="btn btn-primary nav-cta" id="navLoginBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
+          </svg>
+          Login
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation">
+    <a href="index.html"   class="nav-link active" role="menuitem">Home</a>
+    <a href="about.html"   class="nav-link" role="menuitem">About</a>
+    <a href="courses.html" class="nav-link" role="menuitem">Courses</a>
+    <a href="contact.html" class="nav-link" role="menuitem">Contact</a>
+    <a href="../index.html" class="btn btn-primary nav-cta" id="navMobileLoginBtn">
+      Login to Portal
+    </a>
+  </div>
+
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="hero" aria-labelledby="heroTitle">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-pattern"></div>
+    </div>
+
+    <div class="container">
+      <div style="display: flex; gap: 4rem; align-items: stretch; flex-wrap: wrap; justify-content: space-between; width: 100%;">
+        
+        <!-- Left Column: Content & Student Illustration -->
+        <div style="flex: 1.1; min-width: 320px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="hero-content" style="max-width: 580px;">
+            <h1 class="display-xl hero-title" id="heroTitle" data-reveal data-reveal-delay="100" style="margin-bottom: 1.5rem; font-weight: 800; font-family: var(--font); color: var(--white); font-size: clamp(2.25rem, 5vw, 3rem);">
+              Shaping Future Generations with Faith and Knowledge
+            </h1>
+
+            <p class="hero-subtitle" data-reveal data-reveal-delay="200" style="font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem;">
+              Delivering quality Islamic education through qualified scholars in a nurturing environment.
+            </p>
+
+            <div class="hero-cta" data-reveal data-reveal-delay="300" style="margin-bottom: 2.5rem;">
+              <a href="contact.html" class="btn btn-primary btn-lg" id="heroCoursesBtn" style="background-color: var(--gold); border-color: var(--gold); box-shadow: 0 4px 14px rgba(212,160,23,0.35);">
+                Join Us
+              </a>
+              <a href="about.html" class="btn btn-outline-white btn-lg" id="heroContactBtn">
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- Student Illustration -->
+          <div data-reveal data-reveal-delay="400" style="max-width: 480px; margin-top: 1rem;">
+            <img src="student-illustration.png" alt="Happy school children illustration" style="width: 100%; height: auto; display: block; border-radius: var(--r-xl);">
+          </div>
+        </div>
+
+        <!-- Right Column: Notices & Updates -->
+        <div style="flex: 0.9; min-width: 320px; display: flex; align-items: flex-start; justify-content: flex-end;">
+          <div class="card" style="width: 100%; max-width: 480px; padding: 2rem; display: flex; flex-direction: column; gap: 2rem; border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); color: white; min-height: 480px; border-radius: var(--r-xl);" data-reveal data-reveal-delay="200">
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: var(--r-md); background: rgba(212,160,23,0.2); display: flex; align-items: center; justify-content: center; color: var(--gold);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                </div>
+                <div>
+                  <div style="font-weight: 700; font-size: 1.1rem; color: var(--white); font-family: var(--font);">Notices &amp; Updates</div>
+                  <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">Latest announcements</div>
+                </div>
+              </div>
+              <div>
+                <span class="badge" style="background: rgba(212,160,23,0.15); color: var(--gold); border: 1px solid rgba(212,160,23,0.3); font-size: 0.7rem; font-weight: 700; border-radius: var(--r-pill); padding: 0.25rem 0.75rem;">1 Active</span>
+              </div>
+            </div>
+
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--r-lg); line-height: 1.6;">
+                <p style="font-size: 0.95rem; color: rgba(255,255,255,0.95); margin: 0; font-weight: 500;">
+                  ABRAR Head Office and all associated classes will remain closed on Friday, 24-07-2026 following the scheduled term update.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ QURANIC BANNER ══════════════ -->
+  <section style="background: var(--green-900); padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--white);" aria-label="Quranic Inspiration">
+    <div class="container text-center">
+      <p style="font-size: 1.15rem; font-weight: 500; line-height: 1.6; margin: 0; font-family: var(--font);">
+        "My Lord, increase me in knowledge" <span style="font-weight: 700; color: var(--green-400); margin-left: 0.5rem; font-family: 'Plus Jakarta Sans', sans-serif;" dir="rtl">(وَقُلْ رَّبِّ زِدْنِي عِلْمًا)</span>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FEATURES / WHY ABRAR ══════════════ -->
+  <section class="section bg-white" id="features" aria-labelledby="featuresTitle">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge badge-green">Why Choose Us</span>
+        <h2 class="display-md" id="featuresTitle">Education Built on <span class="text-primary">Trust &amp; Excellence</span></h2>
+        <p>We combine traditional Islamic values with modern teaching methods, ensuring every student receives the individual attention they deserve.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" data-reveal data-reveal-delay="100">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>One-to-One Tuition</h3>
+          <p>Personalised sessions tailored to each student's pace and learning style, ensuring no one is left behind.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="200">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+          </div>
+          <h3>Qualified Tutors</h3>
+          <p>Our tutors are certified scholars with years of teaching experience, passionate about nurturing the next generation.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="300">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+          </div>
+          <h3>Progress Tracking</h3>
+          <p>Detailed monthly reports and a digital progress portal help parents stay informed about their child's development.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="400">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Safe Environment</h3>
+          <p>A secure, welcoming, and inclusive learning environment designed to help students thrive spiritually and academically.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="500">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Flexible Scheduling</h3>
+          <p>Classes are available at morning and evening slots to suit every family's needs and busy schedules.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="200">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Affordable Fees</h3>
+          <p>Transparent, competitive pricing with flexible payment options — quality Islamic education shouldn't be a barrier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ PRINCIPAL'S MESSAGE ══════════════ -->
+  <section class="section bg-surface" id="principal-message" aria-labelledby="principalMessageTitle">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual" data-reveal>
+          <div class="about-main-img" style="background: linear-gradient(135deg, var(--green-700), var(--green-500)); min-height: 360px;">
+            <div class="icon-placeholder">👨‍🏫</div>
+          </div>
+          <div class="about-badge-card" style="bottom: 1rem; right: 1rem;">
+            <div class="about-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            </div>
+            <div class="about-badge-text">
+              <strong>Ustadh Yusuf Ali</strong>
+              <span>Madrasa Director</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content" data-reveal data-reveal-delay="200">
+          <span class="badge badge-green">Principal's Message</span>
+          <h2 class="display-md" id="principalMessageTitle">Shaping Minds with <span class="text-primary">Faith &amp; Knowledge</span></h2>
+          <p>
+            At ABRAR, we provide a completely balanced educational environment. Our approach focuses not only on the academic progress of the child but also on their moral, spiritual, and character development, preparing them to succeed in both this life and the hereafter.
+          </p>
+          <p>
+            We take pride in our spacious and ventilated classroom environments. All our setups are equipped with modern interactive learning aids, and we leverage digital portals to track your child's progress transparently. We invite you to join us on this rewarding journey of growth.
+          </p>
+          <a href="about.html" class="btn btn-outline-green" style="margin-top: 1rem;">
+            Learn More About Us
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ STATS BANNER ══════════════ -->
+  <section class="stats-section section-sm" aria-label="Our achievements">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-reveal>
+          <div class="stat-number" data-count="150" data-suffix="+">150+</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+        <div class="stat-item" data-reveal data-reveal-delay="100">
+          <div class="stat-number" data-count="12" data-suffix="+">12+</div>
+          <div class="stat-label">Expert Tutors</div>
+        </div>
+        <div class="stat-item" data-reveal data-reveal-delay="200">
+          <div class="stat-number" data-count="98" data-suffix="%">98%</div>
+          <div class="stat-label">Parent Satisfaction</div>
+        </div>
+        <div class="stat-item" data-reveal data-reveal-delay="300">
+          <div class="stat-number" data-count="5" data-suffix="+">5+</div>
+          <div class="stat-label">Years of Service</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ COURSES PREVIEW ══════════════ -->
+  <section class="section bg-surface" id="courses" aria-labelledby="coursesTitle">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge badge-green">Our Programmes</span>
+        <h2 class="display-md" id="coursesTitle">Courses Designed for <span class="text-primary">Every Learner</span></h2>
+        <p>From beginners to advanced students, our three carefully designed programmes cover every aspect of Islamic learning.</p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Course 1 -->
+        <article class="course-card" data-reveal>
+          <div class="course-banner">
+            <img src="course-one.png" alt="Madrasa One-to-One Illustration" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="course-body">
+            <div class="course-meta">
+              <span class="course-meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                </svg>
+                One-to-One
+              </span>
+              <span class="course-meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Online Class
+              </span>
+            </div>
+            <h3>Madrasa One-to-One</h3>
+            <p>Direct virtual lessons with dedicated tutors. Comprehensive coverage of Arabic literacy, Islamic studies, and personalised student tracking.</p>
+            <div class="course-price">
+              <span class="course-price-amount">₹1,200</span>
+              <span class="course-price-period">/ month</span>
+            </div>
+            <a href="courses.html#madrasa-one" class="btn btn-primary" id="courseBtn1">Learn More</a>
+          </div>
+        </article>
+
+        <!-- Course 2 — Featured -->
+        <article class="course-card featured" data-reveal data-reveal-delay="100">
+          <div class="featured-ribbon">⭐ Most Popular</div>
+          <div class="course-banner">
+            <img src="course-two.png" alt="Madrasa Group Illustration" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="course-body">
+            <div class="course-meta">
+              <span class="course-meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                Group Classes
+              </span>
+              <span class="course-meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Online Group
+              </span>
+            </div>
+            <h3>Madrasa Group</h3>
+            <p>Collaborative online sessions following a structured curriculum. Peer discussion, interactive digital whiteboard exercises, and monthly reports.</p>
+            <div class="course-price">
+              <span class="course-price-amount">₹800</span>
+              <span class="course-price-period">/ month</span>
+            </div>
+            <a href="courses.html#madrasa-group" class="btn btn-primary" id="courseBtn2">Learn More</a>
+          </div>
+        </article>
+
+        <!-- Course 3 -->
+        <article class="course-card" data-reveal data-reveal-delay="200">
+          <div class="course-banner">
+            <img src="course-three.png" alt="Qur'an Recitation Illustration" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="course-body">
+            <div class="course-meta">
+              <span class="course-meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                </svg>
+                Individual
+              </span>
+              <span class="course-meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+                Tajweed Focus
+              </span>
+            </div>
+            <h3>Qur'an Recitation</h3>
+            <p>Master Qur'anic pronunciation online. Tailored virtual coaching for Tajweed rules, memorisation support, and progress summaries for parents.</p>
+            <div class="course-price">
+              <span class="course-price-amount">₹600</span>
+              <span class="course-price-period">/ month</span>
+            </div>
+            <a href="courses.html#quran-recitation" class="btn btn-outline-green" id="courseBtn3">Learn More</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.5rem;" data-reveal>
+        <a href="courses.html" class="btn btn-outline-green btn-lg" id="viewAllCoursesBtn">View All Courses</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FACILITIES ══════════════ -->
+  <section class="section bg-surface" id="facilities" aria-labelledby="facilitiesTitle">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge badge-green">Our Campus</span>
+        <h2 class="display-md" id="facilitiesTitle">Where Learning &amp; <span class="text-primary">Comfort Meet</span></h2>
+        <p>We provide a modern infrastructure designed to offer a safe, enriching, and interactive environment for all our students.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" data-reveal data-reveal-delay="100">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Smart Classrooms</h3>
+          <p>Interactive screens and digital learning aids that enhance visual learning, making complex lessons easier to grasp.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="200">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Secured Premise</h3>
+          <p>A highly secure and monitored environment ensuring maximum safety for students, giving complete peace of mind to parents.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="300">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3>Expansive Library</h3>
+          <p>A rich repository of traditional Islamic literature, Qur'an commentaries, and character-building storybooks.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="400">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3>Kids' Activity Area</h3>
+          <p>A dedicated, playful learning space designed for our pre-primary children to learn morals through fun activities.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="500">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+          <h3>Notice Board &amp; Kiosks</h3>
+          <p>Access points where notices, timetables, and recent changes are updated daily to keep students fully informed.</p>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="600">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3>Administrative Office</h3>
+          <p>A professional coordinator desk providing quick assistance for enquiries, registrations, and portal support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ ABOUT PREVIEW ══════════════ -->
+  <section class="section bg-white" id="about" aria-labelledby="aboutTitle">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual" data-reveal>
+          <div class="about-main-img">
+            <div class="icon-placeholder">🕌</div>
+          </div>
+          <div class="about-badge-card">
+            <div class="about-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            </div>
+            <div class="about-badge-text">
+              <strong>150+</strong>
+              <span>Students Graduated</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content" data-reveal data-reveal-delay="200">
+          <span class="badge badge-green">About ABRAR</span>
+          <h2 class="display-md" id="aboutTitle">A Legacy of <span class="text-primary">Islamic Learning</span></h2>
+          <p>ABRAR Madrasa was founded with a singular mission: to make authentic, high-quality Islamic education accessible to every Muslim family in our community.</p>
+          <p>Over the years, we have grown from a small study circle to a fully-fledged institution with structured programmes, qualified staff, and a digital management system that keeps parents informed every step of the way.</p>
+
+          <div class="about-points">
+            <div class="about-point">
+              <div class="about-point-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span><strong>Certified curriculum</strong> aligned with traditional Islamic scholarship</span>
+            </div>
+            <div class="about-point">
+              <div class="about-point-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span><strong>Monthly progress reports</strong> shared directly with parents</span>
+            </div>
+            <div class="about-point">
+              <div class="about-point-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span><strong>Transparent fee management</strong> with digital receipts</span>
+            </div>
+            <div class="about-point">
+              <div class="about-point-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span><strong>Welcoming to all ages</strong> — from 4 years to adults</span>
+            </div>
+          </div>
+
+          <a href="about.html" class="btn btn-primary" id="readMoreAboutBtn">
+            Read Our Story
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ TESTIMONIALS ══════════════ -->
+  <section class="section bg-surface" id="testimonials" aria-labelledby="testimonialsTitle">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="badge badge-gold">Parent Reviews</span>
+        <h2 class="display-md" id="testimonialsTitle">Trusted by <span class="text-primary">Families</span></h2>
+        <p>Hear what parents in our community have to say about their children's experience at ABRAR.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-reveal>
+          <div class="testimonial-stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote>My daughter's recitation has improved dramatically in just two months. The tutor is incredibly patient and the progress reports keep us updated every step of the way. Truly grateful!</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: linear-gradient(135deg,#087A42,#09A457);">F</div>
+            <div>
+              <div class="testimonial-name">Fatima Begum</div>
+              <div class="testimonial-role">Parent — Qur'an Recitation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-reveal data-reveal-delay="100">
+          <div class="testimonial-stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote>The group Madrasa classes are excellent. My son enjoys going every day, and the environment is very welcoming. The teacher is knowledgeable and kind. Highly recommended for any family!</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: linear-gradient(135deg,#1d4ed8,#3b82f6);">A</div>
+            <div>
+              <div class="testimonial-name">Abdul Kareem</div>
+              <div class="testimonial-role">Parent — Madrasa Group</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-reveal data-reveal-delay="200">
+          <div class="testimonial-stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote>We enrolled both our children for one-to-one Madrasa tuition. The difference in their confidence and knowledge in just a few months has been remarkable. ABRAR is a blessing for our community.</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: linear-gradient(135deg,#7c3aed,#a78bfa);">S</div>
+            <div>
+              <div class="testimonial-name">Sumaiya Hassan</div>
+              <div class="testimonial-role">Parent — Madrasa One-to-One</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ CTA SECTION ══════════════ -->
+  <section class="cta-section section" aria-labelledby="ctaTitle">
+    <div class="container cta-content">
+      <h2 class="display-md" id="ctaTitle" data-reveal>Ready to Begin Your Child's Islamic Journey?</h2>
+      <p data-reveal data-reveal-delay="100">Join our growing community of students and families. Enrol today or get in touch with any questions — we'd love to hear from you.</p>
+      <div class="cta-btns" data-reveal data-reveal-delay="200">
+        <a href="contact.html" class="btn btn-primary btn-lg" id="ctaEnrolBtn">Enquire Now</a>
+        <a href="courses.html" class="btn btn-outline-white btn-lg" id="ctaCoursesBtn">View Courses</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="../logo.png" alt="ABRAR Logo">
+            <div>
+              <div class="nav-logo-text">ABRAR</div>
+              <div class="nav-logo-sub">Madrasa Management System</div>
+            </div>
+          </a>
+          <p class="footer-tagline">Dedicated to nurturing the next generation of Muslims through authentic Islamic education.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" aria-label="Facebook" id="footerFb">f</a>
+            <a href="#" aria-label="WhatsApp" id="footerWa">W</a>
+            <a href="#" aria-label="Instagram" id="footerIg">in</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="courses.html#madrasa-one">Madrasa One-to-One</a></li>
+            <li><a href="courses.html#madrasa-group">Madrasa Group</a></li>
+            <li><a href="courses.html#quran-recitation">Qur'an Recitation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="../index.html">Student / Tutor Login</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 ABRAR Madrasa. All rights reserved.</span>
+        <span>Built with ❤️ for our community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="js/web.js"></script>
+
+  <!-- Floating WhatsApp Contact Button -->
+  <a href="https://wa.me/919876543210" class="no-print" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; width: 56px; height: 56px; background-color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.2); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="Contact on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+      <path d="M22 12a10 10 0 1 1-5.93-9.14"/>
+      <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/>
+    </svg>
+  </a>
+</body>
+</html>
