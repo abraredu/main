@@ -1,4 +1,7 @@
 /* ── web/js/web.js ── */
+import { db } from '../../js/firebase-config.js';
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
 (() => {
   'use strict';
 
@@ -98,10 +101,49 @@
   // ─── Contact Form ─────────────────────────────────────────────
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      showToast('Message Sent!', "We'll get back to you within 24 hours.");
-      contactForm.reset();
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Send Message';
+      
+      const name = document.getElementById('c-name').value.trim();
+      const phone = document.getElementById('c-phone').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const subject = document.getElementById('c-subject').value;
+      const message = document.getElementById('c-message').value.trim();
+      
+      if (!name || !email || !message) {
+        showToast('Error', 'Please fill in all required fields.');
+        return;
+      }
+      
+      try {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Sending...';
+        }
+        
+        await addDoc(collection(db, 'contact_messages'), {
+          name,
+          phone,
+          email,
+          subject,
+          message,
+          status: 'unread',
+          createdAt: serverTimestamp()
+        });
+        
+        showToast('Message Sent!', "We'll get back to you within 24 hours.");
+        contactForm.reset();
+      } catch (err) {
+        console.error("Error sending message: ", err);
+        showToast('Error', 'Failed to send message. Please try again.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
