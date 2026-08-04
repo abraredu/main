@@ -1,5 +1,5 @@
 /* ── web/js/web.js ── */
-import { db } from '../../js/firebase-config.js';
+import { db } from './firebase-config.js';
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 (() => {
