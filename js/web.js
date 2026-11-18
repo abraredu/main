@@ -1,5 +1,5 @@
 /* ── web/js/web.js ── */
-import { db } from './firebase-config.js';
+import { db } from '../../admin/js/firebase-config.js';
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 (() => {
@@ -42,7 +42,7 @@ import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/fir
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     const href = link.getAttribute('href');
-    if (href && (href === currentPage || href.endsWith(currentPage))) {
+    if (href && !href.startsWith('..') && (href === currentPage || href === './' + currentPage)) {
       link.classList.add('active');
     }
   });

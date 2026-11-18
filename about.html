@@ -11,22 +11,36 @@
 </head>
 <body>
 
+  <!-- ══════════════ TOP ANNOUNCEMENT BAR ══════════════ -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-notice">
+        <span class="topbar-pill">Admissions Open</span>
+        <span>Enrollments open for Madrasa Group, One-to-One &amp; Tarteel Qur'an Programmes</span>
+      </div>
+      <div class="topbar-links">
+        <a href="courses.html">Curriculum</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="student-login.html">Student Portal</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════ NAVIGATION ══════════════ -->
-  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Main navigation">
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="ABRAR Madrasa Home">
+      <a href="index.html" class="nav-logo" aria-label="ABRAR Online Islamic School Home">
         <img src="logo.png" alt="ABRAR Logo">
-        <div>
-          <div class="nav-logo-text">ABRAR</div>
-          <div class="nav-logo-sub">Madrasa Management System</div>
-        </div>
       </a>
       <div class="nav-links">
         <a href="index.html"   class="nav-link">Home</a>
-        <a href="about.html"   class="nav-link active">About</a>
-        <a href="courses.html" class="nav-link">Courses</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="https://abrar-main.vercel.app/student-login.html" class="btn btn-primary nav-cta" id="navLoginBtn">Login</a>
+        <a href="about.html"   class="nav-link active">About Us</a>
+        <a href="courses.html" class="nav-link">Academics</a>
+        <a href="contact.html" class="nav-link">Admissions</a>
+        <a href="student-login.html" class="btn btn-primary nav-cta" id="navLoginBtn">
+          <i data-lucide="log-in" style="width: 16px; height: 16px;"></i>
+          Student Login
+        </a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -37,19 +51,19 @@
   <!-- Mobile Nav -->
   <div class="nav-mobile" id="navMobile">
     <a href="index.html"   class="nav-link">Home</a>
-    <a href="about.html"   class="nav-link active">About</a>
-    <a href="courses.html" class="nav-link">Courses</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <a href="https://abrar-main.vercel.app/student-login.html" class="btn btn-primary nav-cta">Login to Portal</a>
+    <a href="about.html"   class="nav-link active">About Us</a>
+    <a href="courses.html" class="nav-link">Academics</a>
+    <a href="contact.html" class="nav-link">Admissions</a>
+    <a href="student-login.html" class="btn btn-primary nav-cta" id="navMobileLoginBtn">Student Login</a>
   </div>
 
 
-  <!-- ══════════════ PAGE HERO ══════════════ -->
-  <section class="page-hero" aria-labelledby="pageHeroTitle">
-    <div class="container page-hero-content">
-      <span class="badge badge-green" style="margin-bottom:1rem; display:inline-flex;">🕌 Our Story</span>
-      <h1 class="display-lg" id="pageHeroTitle">About ABRAR Madrasa</h1>
-      <p>A community-driven institution dedicated to authentic Islamic education, built on trust, tradition and a commitment to excellence.</p>
+  <!-- ══════════════ SUBPAGE HERO ══════════════ -->
+  <section class="subpage-hero" aria-labelledby="pageHeroTitle">
+    <div class="container">
+      <span class="topbar-pill" style="margin-bottom: 1rem; display: inline-block;">Our Story &amp; Vision</span>
+      <h1 class="display-lg" id="pageHeroTitle" style="color: #ffffff; margin-bottom: 0.75rem;">About ABRAR Online Islamic School</h1>
+      <p style="color: rgba(236,253,245,0.9); max-width: 680px; margin: 0 auto;">A community-driven institution dedicated to authentic Islamic education, built on trust, tradition, and a commitment to excellence.</p>
     </div>
   </section>
 
@@ -67,40 +81,37 @@
 
           <div style="margin-bottom: 2rem;">
             <h3 style="font-size:1.0625rem; font-weight:700; color:var(--green-700); margin-bottom:0.625rem; display:flex; align-items:center; gap:0.5rem;">
-              <span style="font-size:1.25rem;">🎯</span> Our Mission
+              <i data-lucide="target" style="width: 20px; height: 20px;"></i> Our Mission
             </h3>
             <p>To make authentic Islamic education accessible to learners of all ages through live online learning, structured programmes, and dedicated mentoring, enabling every student to grow in faith, knowledge, and character.</p>
           </div>
 
           <div style="margin-bottom: 2rem;">
             <h3 style="font-size:1.0625rem; font-weight:700; color:var(--green-700); margin-bottom:0.625rem; display:flex; align-items:center; gap:0.5rem;">
-              <span style="font-size:1.25rem;">🌟</span> Our Vision
+              <i data-lucide="sparkles" style="width: 20px; height: 20px;"></i> Our Vision
             </h3>
             <p>To become a trusted global online Islamic learning community that inspires individuals and families to live by the teachings of Islam through quality education, sincere mentoring, and a love for the Qur'an.</p>
           </div>
 
           <div>
             <h3 style="font-size:1.0625rem; font-weight:700; color:var(--green-700); margin-bottom:0.625rem; display:flex; align-items:center; gap:0.5rem;">
-              <span style="font-size:1.25rem;">🌱</span> Our Learning Philosophy
+              <i data-lucide="sprout" style="width: 20px; height: 20px;"></i> Our Learning Philosophy
             </h3>
             <p>We believe every learner is unique. That's why we focus on personal mentoring, consistent encouragement, structured learning, and continuous progress tracking. Our goal is not only to teach Islamic knowledge, but to nurture confident Muslims who practise their faith with understanding, sincerity, and good character.</p>
           </div>
         </div>
 
         <div class="about-visual" data-reveal data-reveal-delay="200">
-          <div class="about-main-img" style="background: linear-gradient(135deg,var(--green-800),var(--green-500)); display: flex; align-items: center; justify-content: center; padding: 2rem;">
-            <img src="logo.png" alt="ABRAR Logo" style="height: 160px; width: auto; object-fit: contain; filter: brightness(0) invert(1) drop-shadow(0 8px 20px rgba(0,0,0,0.3));">
+          <div style="border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid #e2e8f0;">
+            <img src="islamic-online-learning.png" alt="ABRAR Online Islamic Learning" style="width: 100%; height: 390px; object-fit: cover;">
           </div>
-          <div class="about-badge-card">
-            <div class="about-badge-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+          <div class="about-badge-card" style="border: 2px solid #d4a017; background: #064e2b; color: #ffffff;">
+            <div class="about-badge-icon" style="background: rgba(212,160,23,0.2); color: #fde68a;">
+              <i data-lucide="shield-check"></i>
             </div>
             <div class="about-badge-text">
-              <strong>Est. 2026</strong>
-              <span>Serving the community</span>
+              <strong style="color: #fde68a;">Global Online Academy</strong>
+              <span style="color: rgba(236,253,245,0.85);">Serving families worldwide</span>
             </div>
           </div>
         </div>
@@ -118,26 +129,26 @@
         <p>These values guide every decision we make, every class we teach, and every interaction we have with our students and families.</p>
       </div>
 
-      <div class="values-grid">
-        <div class="value-card" data-reveal>
-          <div class="value-emoji">🤝</div>
-          <h3>Integrity</h3>
-          <p>We operate with complete honesty and transparency — in our teaching, our fees, and our communication with families.</p>
+      <div class="pillars-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+        <div class="pillar-card" data-reveal>
+          <div class="pillar-icon"><i data-lucide="shield-check" style="width: 24px; height: 24px;"></i></div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Integrity</h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">We operate with complete honesty and transparency — in our teaching, our fees, and our communication with families.</p>
         </div>
-        <div class="value-card" data-reveal data-reveal-delay="100">
-          <div class="value-emoji">💎</div>
-          <h3>Excellence</h3>
-          <p>We hold ourselves to the highest standards in Islamic scholarship and teaching, continuously improving our methods.</p>
+        <div class="pillar-card" data-reveal data-reveal-delay="100">
+          <div class="pillar-icon"><i data-lucide="award" style="width: 24px; height: 24px;"></i></div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Excellence</h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">We hold ourselves to the highest standards in Islamic scholarship and teaching, continuously improving our methods.</p>
         </div>
-        <div class="value-card" data-reveal data-reveal-delay="200">
-          <div class="value-emoji">❤️</div>
-          <h3>Compassion</h3>
-          <p>Every student is treated with care, patience and respect — we celebrate effort and progress, not just results.</p>
+        <div class="pillar-card" data-reveal data-reveal-delay="200">
+          <div class="pillar-icon"><i data-lucide="heart-handshake" style="width: 24px; height: 24px;"></i></div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Compassion</h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">Every student is treated with care, patience and respect — we celebrate effort and progress, not just results.</p>
         </div>
-        <div class="value-card" data-reveal data-reveal-delay="300">
-          <div class="value-emoji">🌍</div>
-          <h3>Community</h3>
-          <p>We exist to serve our community — bringing families together and strengthening the bonds of our local Ummah.</p>
+        <div class="pillar-card" data-reveal data-reveal-delay="300">
+          <div class="pillar-icon"><i data-lucide="globe" style="width: 24px; height: 24px;"></i></div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Community</h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">We exist to serve our community — bringing families together and strengthening the bonds of our Ummah.</p>
         </div>
       </div>
     </div>
@@ -202,22 +213,22 @@
 
       <div class="team-grid">
         <div class="team-card" data-reveal>
-          <div class="team-avatar" style="background: linear-gradient(135deg,var(--green-700),var(--green-500));">👨‍🏫</div>
+          <div class="team-avatar" style="background: linear-gradient(135deg,#064e2b,#087A42);"><i data-lucide="award" style="width: 28px; height: 28px; color: #fde68a;"></i></div>
           <div class="team-name">Ustadh Yusuf Ali</div>
           <div class="team-role">Principal &amp; Senior Tutor</div>
         </div>
         <div class="team-card" data-reveal data-reveal-delay="100">
-          <div class="team-avatar" style="background: linear-gradient(135deg,#1d4ed8,#3b82f6);">👩‍🏫</div>
+          <div class="team-avatar" style="background: linear-gradient(135deg,#0f766e,#14b8a6);"><i data-lucide="book-open" style="width: 28px; height: 28px; color: #ffffff;"></i></div>
           <div class="team-name">Ustadha Aisha Rahman</div>
           <div class="team-role">Qur'an &amp; Tajweed Lead</div>
         </div>
         <div class="team-card" data-reveal data-reveal-delay="200">
-          <div class="team-avatar" style="background: linear-gradient(135deg,#7c3aed,#a78bfa);">👨‍🏫</div>
+          <div class="team-avatar" style="background: linear-gradient(135deg,#1e40af,#3b82f6);"><i data-lucide="library" style="width: 28px; height: 28px; color: #ffffff;"></i></div>
           <div class="team-name">Maulana Ibrahim Khan</div>
           <div class="team-role">Madrasa Curriculum Head</div>
         </div>
         <div class="team-card" data-reveal data-reveal-delay="300">
-          <div class="team-avatar" style="background: linear-gradient(135deg,#92400e,#d97706);">👩‍🏫</div>
+          <div class="team-avatar" style="background: linear-gradient(135deg,#92400e,#d97706);"><i data-lucide="users" style="width: 28px; height: 28px; color: #ffffff;"></i></div>
           <div class="team-name">Ustadha Khadija Siddiqui</div>
           <div class="team-role">Girls' Section Coordinator</div>
         </div>
@@ -271,10 +282,11 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4>Portal Access</h4>
           <ul>
-            <li><a href="contact.html">Get in Touch</a></li>
-            <li><a href="https://abrar-main.vercel.app/student-login.html">Login Portal</a></li>
+            <li><a href="student-login.html">Student Login</a></li>
+            <li><a href="../admin/index.html">Tutor Login</a></li>
+            <li><a href="contact.html">Help &amp; Support</a></li>
           </ul>
         </div>
       </div>

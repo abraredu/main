@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login — ABRAR Madrasa Portal</title>
+  <meta name="description" content="Sign in to the ABRAR Madrasa Student Portal to access your class schedule, recitation progress, homework, and fee receipts.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="css/web-style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .auth-page {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.25rem 4rem;
+      background: linear-gradient(180deg, var(--green-50) 0%, #f6f9f7 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-bg-blob-1 {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(13,189,104,0.12) 0%, rgba(13,189,104,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .auth-bg-blob-2 {
+      position: absolute;
+      bottom: -120px;
+      left: -100px;
+      width: 460px;
+      height: 460px;
+      background: radial-gradient(circle, rgba(212,160,23,0.1) 0%, rgba(212,160,23,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .student-auth-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+      background: var(--white);
+      border-radius: var(--r-xl);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 16px 40px rgba(8,122,66,.08);
+      padding: 2.5rem 2.25rem;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .auth-badge-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-header h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--neutral-900);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .auth-header p {
+      font-size: 0.925rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    .auth-input-group {
+      margin-bottom: 1.35rem;
+    }
+
+    .auth-input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--neutral-800);
+      margin-bottom: 0.5rem;
+    }
+
+    .auth-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .auth-input-wrapper svg {
+      position: absolute;
+      left: 1rem;
+      width: 18px;
+      height: 18px;
+      color: var(--neutral-400, #9ca3af);
+      pointer-events: none;
+    }
+
+    .auth-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 1rem 0 2.75rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--r-md);
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--neutral-900);
+      background: var(--neutral-50);
+      transition: all var(--t-fast);
+      outline: none;
+    }
+
+    .auth-input:focus {
+      background: var(--white);
+      border-color: var(--green-700);
+      box-shadow: 0 0 0 3px rgba(8,122,66,.12);
+    }
+
+    .auth-hint {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.775rem;
+      color: var(--color-text-muted);
+    }
+
+    .auth-alert {
+      display: none;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      border-radius: var(--r-md);
+      background: #fef2f2;
+      border: 1px solid #fee2e2;
+      color: #991b1b;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      margin-bottom: 1.25rem;
+    }
+
+    .auth-alert svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .btn-submit-auth {
+      width: 100%;
+      height: 48px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: var(--r-md);
+      background: var(--green-700);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(8,122,66,.25);
+      transition: all var(--t-fast);
+    }
+
+    .btn-submit-auth:hover {
+      background: var(--green-800);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(8,122,66,.35);
+    }
+
+    .btn-submit-auth:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .auth-footer-links {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .auth-footer-links a {
+      color: var(--green-700);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .staff-link-box {
+      background: var(--neutral-50);
+      border-radius: var(--r-md);
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--neutral-600);
+    }
+
+    .staff-link-box span {
+      font-size: 0.825rem;
+    }
+
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ TOP ANNOUNCEMENT BAR ══════════════ -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-notice">
+        <span class="topbar-pill">Student Portal</span>
+        <span>Access your class schedule, Qur'an progress reports &amp; fee receipts</span>
+      </div>
+      <div class="topbar-links">
+        <a href="courses.html">Curriculum</a>
+        <a href="contact.html">Admissions</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ABRAR Online Islamic School Home">
+        <img src="logo.png" alt="ABRAR Logo">
+      </a>
+
+      <div class="nav-links" role="menubar">
+        <a href="index.html"   class="nav-link" role="menuitem">Home</a>
+        <a href="about.html"   class="nav-link" role="menuitem">About Us</a>
+        <a href="courses.html" class="nav-link" role="menuitem">Academics</a>
+        <a href="contact.html" class="nav-link" role="menuitem">Admissions</a>
+        <a href="student-login.html" class="btn btn-primary nav-cta active" id="navLoginBtn">
+          <i data-lucide="log-in" style="width: 16px; height: 16px;"></i>
+          Student Login
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation">
+    <a href="index.html"   class="nav-link" role="menuitem">Home</a>
+    <a href="about.html"   class="nav-link" role="menuitem">About Us</a>
+    <a href="courses.html" class="nav-link" role="menuitem">Academics</a>
+    <a href="contact.html" class="nav-link" role="menuitem">Admissions</a>
+    <a href="student-login.html" class="btn btn-primary nav-cta active" id="navMobileLoginBtn">
+      Student Login
+    </a>
+  </div>
+
+
+  <!-- ══════════════ AUTH PAGE ══════════════ -->
+  <main class="auth-page">
+    <div class="auth-bg-blob-1"></div>
+    <div class="auth-bg-blob-2"></div>
+
+    <div class="student-auth-card">
+      <div class="auth-badge-wrap">
+        <span class="badge badge-green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          Student Login
+        </span>
+      </div>
+
+      <div class="auth-header">
+        <h1>Welcome Back</h1>
+        <p>Sign in to view your learning schedule, Qur'an recitation progress, and fee receipts.</p>
+      </div>
+
+      <div id="loginAlert" class="auth-alert" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span id="loginAlertText">Invalid credentials.</span>
+      </div>
+
+      <form id="studentLoginForm" novalidate>
+        <div class="auth-input-group">
+          <label for="loginId">Abrar Student ID or Mobile Number</label>
+          <div class="auth-input-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <input 
+              type="text" 
+              id="loginId" 
+              class="auth-input" 
+              required 
+              placeholder="e.g. ABR001 or 9876543210" 
+              autocomplete="username"
+              autofocus
+            >
+          </div>
+          <span class="auth-hint">Enter your Student ID (ABR...), Admission Number, or registered phone number.</span>
+        </div>
+
+        <button type="submit" class="btn-submit-auth" id="loginBtn">
+          <span>Sign In to Portal</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="auth-footer-links">
+        <div style="background: var(--neutral-50); border: 1px solid var(--color-border); border-radius: var(--r-md); padding: 1.25rem 1rem; text-align: center;">
+          <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem; font-weight: 500;">Are you a tutor or staff member?</div>
+          <a href="../admin/index.html" class="btn btn-outline" id="tutorLoginBtn" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; height: 42px; border: 1.5px solid var(--green-700); color: var(--green-700); background: transparent; font-weight: 700; font-size: 0.9rem; text-decoration: none; border-radius: var(--r-md); transition: all var(--t-fast);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Tutor Login &rarr;
+          </a>
+        </div>
+        <div style="margin-top: 0.5rem;">
+          <span style="color: var(--color-text-muted);">Need help signing in? </span>
+          <a href="contact.html">Contact Madrasa Admin</a>
+        </div>
+        <div style="margin-top: 0.25rem;">
+          <a href="index.html" style="color: var(--color-text-muted); font-weight: 500;">&larr; Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="logo.png" alt="ABRAR Logo">
+            <div>
+              <div class="nav-logo-text">ABRAR</div>
+              <div class="nav-logo-sub">Madrasa Management System</div>
+            </div>
+          </a>
+          <p class="footer-tagline">Dedicated to nurturing the next generation of Muslims through authentic Islamic education.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="courses.html#madrasa-one">Madrasa One-to-One</a></li>
+            <li><a href="courses.html#madrasa-group">Madrasa Group</a></li>
+            <li><a href="courses.html#quran-recitation">Qur'an Recitation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Portal Access</h4>
+          <ul>
+            <li><a href="student-login.html">Student Login</a></li>
+            <li><a href="../admin/index.html">Tutor Login</a></li>
+            <li><a href="contact.html">Help &amp; Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2025 ABRAR Madrasa. All rights reserved.</span>
+        <span>Built with &#10084;&#65039; for our community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script type="module">
+    import { db } from '../admin/js/firebase-config.js';
+    import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Auto redirect if already signed in
+    if (sessionStorage.getItem('currentStudentId')) {
+      window.location.href = '../admin/student-dashboard.html';
+    }
+
+    const form = document.getElementById('studentLoginForm');
+    const alertBox = document.getElementById('loginAlert');
+    const alertText = document.getElementById('loginAlertText');
+    const loginBtn = document.getElementById('loginBtn');
+    const loginIdInput = document.getElementById('loginId');
+
+    function showError(message) {
+      alertText.textContent = message;
+      alertBox.style.display = 'flex';
+      loginBtn.innerHTML = `<span>Sign In to Portal</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>`;
+      loginBtn.disabled = false;
+      loginIdInput.focus();
+    }
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const loginId = loginIdInput.value.trim();
+
+        if (!loginId) {
+          showError("Please enter your Student ID or Mobile Number.");
+          return;
+        }
+
+        alertBox.style.display = 'none';
+        loginBtn.innerHTML = `<svg class="animate-spin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+        </svg><span>Signing In...</span>`;
+        loginBtn.disabled = true;
+
+        try {
+          const studentsRef = collection(db, "students");
+
+          // Search across studentId, phone, whatsapp, or admNo
+          const q1 = query(studentsRef, where("studentId", "==", loginId));
+          const q2 = query(studentsRef, where("phone", "==", loginId));
+          const q3 = query(studentsRef, where("whatsapp", "==", loginId));
+          const q4 = query(studentsRef, where("admNo", "==", loginId));
+
+          const [snap1, snap2, snap3, snap4] = await Promise.all([
+            getDocs(q1),
+            getDocs(q2),
+            getDocs(q3),
+            getDocs(q4)
+          ]);
+
+          let matchedStudent = null;
+          const checkDoc = (docSnap) => {
+            if (!matchedStudent) {
+              matchedStudent = { id: docSnap.id, ...docSnap.data() };
+            }
+          };
+
+          snap1.forEach(checkDoc);
+          snap2.forEach(checkDoc);
+          snap3.forEach(checkDoc);
+          snap4.forEach(checkDoc);
+
+          if (matchedStudent) {
+            const admissionStatus = (matchedStudent.admissionStatus || '').toLowerCase();
+            const hasAdmissionDate = matchedStudent.admissionDate && matchedStudent.admissionDate.trim() !== '' && matchedStudent.admissionDate !== '-';
+            const isAccepted = admissionStatus === 'accepted' || (!matchedStudent.admissionStatus && hasAdmissionDate);
+
+            if (!isAccepted) {
+              showError("Admission Pending: Your admission application has not been approved yet. You can access the student portal once approved by administration.");
+              return;
+            }
+
+            if (matchedStudent.status === 'inactive' || matchedStudent.status === 'suspended') {
+              showError("Your student account is currently inactive. Please contact Madrasa administration.");
+              return;
+            }
+
+            // Save session and redirect to student dashboard
+            sessionStorage.setItem('currentStudentId', matchedStudent.id);
+            window.location.href = '../admin/student-dashboard.html';
+          } else {
+            showError("Invalid Abrar ID or Mobile Number. Please check your credentials or contact Madrasa admin.");
+          }
+        } catch (err) {
+          console.error("Student login error:", err);
+          showError("A connection error occurred. Please try again.");
+        }
+      });
+    }
+
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('navMobile');
+    if (hamburger && navMobile) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        navMobile.classList.toggle('open', isOpen);
+      });
+    }
+  </script>
+</body>
+</html>

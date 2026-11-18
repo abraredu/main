@@ -73,22 +73,36 @@
 </head>
 <body>
 
+  <!-- ══════════════ TOP ANNOUNCEMENT BAR ══════════════ -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-notice">
+        <span class="topbar-pill">Admissions Open</span>
+        <span>Enrollments open for Madrasa Group, One-to-One &amp; Tarteel Qur'an Programmes</span>
+      </div>
+      <div class="topbar-links">
+        <a href="courses.html">Curriculum</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="student-login.html">Student Portal</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════ NAVIGATION ══════════════ -->
-  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Main navigation">
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ABRAR Madrasa Home">
         <img src="logo.png" alt="ABRAR Logo">
-        <div>
-          <div class="nav-logo-text">ABRAR</div>
-          <div class="nav-logo-sub">Madrasa Management System</div>
-        </div>
       </a>
       <div class="nav-links">
         <a href="index.html"   class="nav-link">Home</a>
-        <a href="about.html"   class="nav-link">About</a>
-        <a href="courses.html" class="nav-link">Courses</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
-        <a href="https://abrar-main.vercel.app/student-login.html" class="btn btn-primary nav-cta" id="navLoginBtn">Login</a>
+        <a href="about.html"   class="nav-link">About Us</a>
+        <a href="courses.html" class="nav-link">Academics</a>
+        <a href="contact.html" class="nav-link active">Admissions</a>
+        <a href="student-login.html" class="btn btn-primary nav-cta" id="navLoginBtn">
+          <i data-lucide="log-in" style="width: 16px; height: 16px;"></i>
+          Student Login
+        </a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -99,19 +113,19 @@
   <!-- Mobile Nav -->
   <div class="nav-mobile" id="navMobile">
     <a href="index.html"   class="nav-link">Home</a>
-    <a href="about.html"   class="nav-link">About</a>
-    <a href="courses.html" class="nav-link">Courses</a>
-    <a href="contact.html" class="nav-link active">Contact</a>
-    <a href="https://abrar-main.vercel.app/student-login.html" class="btn btn-primary nav-cta">Login to Portal</a>
+    <a href="about.html"   class="nav-link">About Us</a>
+    <a href="courses.html" class="nav-link">Academics</a>
+    <a href="contact.html" class="nav-link active">Admissions</a>
+    <a href="student-login.html" class="btn btn-primary nav-cta" id="navMobileLoginBtn">Student Login</a>
   </div>
 
 
-  <!-- ══════════════ PAGE HERO ══════════════ -->
-  <section class="page-hero" aria-labelledby="pageHeroTitle">
-    <div class="container page-hero-content">
-      <span class="badge badge-green" style="margin-bottom:1rem; display:inline-flex;">📞 Get In Touch</span>
-      <h1 class="display-lg" id="pageHeroTitle">Contact Us</h1>
-      <p>We'd love to hear from you — whether you're enquiring about enrolment, have questions about our courses, or simply want to say Assalamu Alaikum.</p>
+  <!-- ══════════════ SUBPAGE HERO ══════════════ -->
+  <section class="subpage-hero" aria-labelledby="pageHeroTitle">
+    <div class="container">
+      <span class="topbar-pill" style="margin-bottom: 1rem; display: inline-block;">Admissions &amp; Support</span>
+      <h1 class="display-lg" id="pageHeroTitle" style="color: #ffffff; margin-bottom: 0.75rem;">Contact &amp; Admissions</h1>
+      <p style="color: rgba(236,253,245,0.9); max-width: 680px; margin: 0 auto;">We'd love to hear from you — whether you're enquiring about admission, have questions about our syllabus, or want to schedule a counseling call.</p>
     </div>
   </section>
 
@@ -189,15 +203,15 @@
             </div>
           </div>
 
-          <!-- Map Placeholder -->
-          <div class="map-placeholder" role="img" aria-label="Map placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
-              <line x1="9" y1="3" x2="9" y2="18"/>
-              <line x1="15" y1="6" x2="15" y2="21"/>
-            </svg>
-            <p>Interactive map will be embedded here</p>
+          <!-- Quick Admissions Note -->
+          <div style="padding: 1.5rem; background: linear-gradient(135deg, #064e2b 0%, #087A42 100%); border-radius: 16px; color: #ffffff; border: 1px solid rgba(212,160,23,0.4);">
+            <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem;">
+              <i data-lucide="sparkles" style="width: 18px; height: 18px; color: #fde68a;"></i>
+              <strong style="color: #fde68a; font-size: 0.95rem;">Free Trial &amp; Level Assessment</strong>
+            </div>
+            <p style="font-size: 0.85rem; color: rgba(236,253,245,0.9); margin: 0; line-height: 1.6;">
+              Every new student receives a complimentary orientation session to evaluate their current level and pair them with the right mentor.
+            </p>
           </div>
         </div>
 
@@ -395,10 +409,11 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4>Portal Access</h4>
           <ul>
-            <li><a href="contact.html">Get in Touch</a></li>
-            <li><a href="https://abrar-main.vercel.app/student-login.html">Login Portal</a></li>
+            <li><a href="student-login.html">Student Login</a></li>
+            <li><a href="../admin/index.html">Tutor Login</a></li>
+            <li><a href="contact.html">Help &amp; Support</a></li>
           </ul>
         </div>
       </div>
